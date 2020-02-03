@@ -123,7 +123,7 @@ def testing(tabular_q, epoch):
         all_cooked_bw=all_cooked_bw)
 
     log_path = TEST_LOG_FOLDER + 'log_' + all_file_names[test_net_env.trace_idx]
-    log_file = open(log_path, 'wb')
+    log_file = open(log_path, 'w')
 
     time_stamp = 0
     video_count = 0
@@ -185,15 +185,15 @@ def testing(tabular_q, epoch):
                 break
 
             log_path = TEST_LOG_FOLDER + 'log_' + all_file_names[test_net_env.trace_idx]
-            log_file = open(log_path, 'wb')
+            log_file = open(log_path, 'w')
 
-    with open(TEST_LOG_PATH, 'ab') as log_file:
+    with open(TEST_LOG_PATH, 'a') as log_file:
          # append test performance to the log
         rewards = []
         test_log_files = os.listdir(TEST_LOG_FOLDER)
         for test_log_file in test_log_files:
             reward = []
-            with open(TEST_LOG_FOLDER + test_log_file, 'rb') as f:
+            with open(TEST_LOG_FOLDER + test_log_file, 'r') as f:
                 for line in f:
                     parse = line.split()
                     try:

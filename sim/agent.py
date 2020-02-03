@@ -48,7 +48,7 @@ def main():
     net_env = env.Environment(all_cooked_time=all_cooked_time,
                               all_cooked_bw=all_cooked_bw)
 
-    with tf.Session() as sess, open(LOG_FILE, 'wb') as log_file:
+    with tf.Session() as sess, open(LOG_FILE, 'w') as log_file:
 
         actor = a3c.ActorNetwork(sess,
                                  state_dim=[S_INFO, S_LEN], action_dim=A_DIM,

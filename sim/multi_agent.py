@@ -48,7 +48,7 @@ def testing(epoch, nn_model, log_file):
     test_log_files = os.listdir(TEST_LOG_FOLDER)
     for test_log_file in test_log_files:
         reward = []
-        with open(TEST_LOG_FOLDER + test_log_file, 'rb') as f:
+        with open(TEST_LOG_FOLDER + test_log_file, 'r') as f:
             for line in f:
                 parse = line.split()
                 try:
@@ -85,7 +85,7 @@ def central_agent(net_params_queues, exp_queues):
                         filemode='w',
                         level=logging.INFO)
 
-    with tf.Session() as sess, open(LOG_FILE + '_test', 'wb') as test_log_file:
+    with tf.Session() as sess, open(LOG_FILE + '_test', 'w') as test_log_file:
 
         actor = a3c.ActorNetwork(sess,
                                  state_dim=[S_INFO, S_LEN], action_dim=A_DIM,
@@ -205,7 +205,7 @@ def agent(agent_id, all_cooked_time, all_cooked_bw, net_params_queue, exp_queue)
                               all_cooked_bw=all_cooked_bw,
                               random_seed=agent_id)
 
-    with tf.Session() as sess, open(LOG_FILE + '_agent_' + str(agent_id), 'wb') as log_file:
+    with tf.Session() as sess, open(LOG_FILE + '_agent_' + str(agent_id), 'w') as log_file:
         actor = a3c.ActorNetwork(sess,
                                  state_dim=[S_INFO, S_LEN], action_dim=A_DIM,
                                  learning_rate=ACTOR_LR_RATE)
