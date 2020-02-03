@@ -176,14 +176,14 @@ def main():
                     # assembled_actor_gradient = actor_gradient_batch[0]
                     # assembled_critic_gradient = critic_gradient_batch[0]
                     # assert len(actor_gradient_batch) == len(critic_gradient_batch)
-                    # for i in xrange(len(actor_gradient_batch) - 1):
-                    #     for j in xrange(len(actor_gradient)):
+                    # for i in range(len(actor_gradient_batch) - 1):
+                    #     for j in range(len(actor_gradient)):
                     #         assembled_actor_gradient[j] += actor_gradient_batch[i][j]
                     #         assembled_critic_gradient[j] += critic_gradient_batch[i][j]
                     # actor.apply_gradients(assembled_actor_gradient)
                     # critic.apply_gradients(assembled_critic_gradient)
 
-                    for i in xrange(len(actor_gradient_batch)):
+                    for i in range(len(actor_gradient_batch)):
                         actor.apply_gradients(actor_gradient_batch[i])
                         critic.apply_gradients(critic_gradient_batch[i])
 
