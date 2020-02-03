@@ -31,8 +31,8 @@ SUMMARY_DIR = './results'
 LOG_FILE = './results/log'
 TEST_LOG_FOLDER = './test_results/'
 TRAIN_TRACES = './cooked_traces/'
-# NN_MODEL = './results/pretrain_linear_reward.ckpt'
-NN_MODEL = None
+NN_MODEL = './results/pretrain_linear_reward.ckpt'
+#NN_MODEL = None
 
 
 def testing(epoch, nn_model, log_file):
