@@ -2,7 +2,7 @@ import os
 import logging
 import numpy as np
 import multiprocessing as mp
-os.environ['CUDA_VISIBLE_DEVICES']='0'
+os.environ['CUDA_VISIBLE_DEVICES']=''
 import tensorflow as tf
 import env
 import a3c
