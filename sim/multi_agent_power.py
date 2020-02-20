@@ -2,7 +2,7 @@ import os
 import logging
 import numpy as np
 import multiprocessing as mp
-os.environ['CUDA_VISIBLE_DEVICES']=''
+os.environ['CUDA_VISIBLE_DEVICES']='-1'
 import tensorflow as tf
 import env
 import a3c
@@ -38,7 +38,7 @@ NN_MODEL = None
 pwr_base_table = [330, 330, 330, 330, 330, 330] # one-on-one match with video bit rate, which may not be correct
 net_model_coeff, net_model_intercept = 0.0031, 116.48
 
-POWER_BUDGET = 400
+POWER_BUDGET = 450
 
 MIN_REWARD = -999
 
@@ -57,7 +57,7 @@ def testing(epoch, nn_model, log_file):
     os.system('mkdir ' + TEST_LOG_FOLDER)
     
     # run test script
-    os.system('python rl_test.py ' + nn_model)
+    os.system('python rl_test_power.py ' + nn_model)
     
     # append test performance to the log
     rewards = []
