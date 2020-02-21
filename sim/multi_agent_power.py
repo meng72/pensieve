@@ -319,7 +319,8 @@ def agent(agent_id, all_cooked_time, all_cooked_bw, net_params_queue, exp_queue)
                            str(rebuf) + '\t' +
                            str(video_chunk_size) + '\t' +
                            str(delay) + '\t' +
-                           str(reward) + '\n')
+                           str(reward) + '\t' + 
+                           str(real_power) + '\n')
             log_file.flush()
 
             # report experience to the coordinator
